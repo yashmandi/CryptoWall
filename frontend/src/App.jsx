@@ -49,7 +49,7 @@ function App() {
                 setWallet={setWallet}
                 seedPhrase={seedPhrase}
                 setSeedPhrase={setSeedPhrase}
-                selectedChain={selectedChain}``
+                selectedChain={selectedChain}
               />
             }
           />
