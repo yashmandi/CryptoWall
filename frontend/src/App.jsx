@@ -3,6 +3,8 @@ import { Select } from "antd";
 import logo from "./assets/image1.png";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
+import CreateAccount from "./components/CreateAccount";
+import RecoverAccount from "./components/RecoverAccount";
 
 function App() {
   const [selectedChain, setSelectedChain] = useState("0x1");
@@ -39,6 +41,8 @@ function App() {
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/your-wallet" element={<CreateAccount />} />
+        <Route path="/recover" element={<RecoverAccount />} />
       </Routes>
     </div>
   );
