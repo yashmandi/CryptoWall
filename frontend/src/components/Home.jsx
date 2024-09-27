@@ -32,7 +32,7 @@ const Home = () => {
         </h4>
       </div>
 
-      <div class="flex justify-center items-end h-[160px]">
+      <div className="flex justify-center items-end h-[160px]">
         <p className="text-xs font-normal">
           Developed by{" "}
           <a
