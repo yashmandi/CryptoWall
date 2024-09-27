@@ -5,10 +5,10 @@ import logo from "./assets/image1.png";
 function App() {
   const [selectedChain, setSelectedChain] = useState("0x1");
   return (
-    <div className="bg-[#1B1B1B] h-[600px] w-[350px] text-white font-bold text-2xl">
-      <header className="flex justify-between items-center p-4 bg-white rounded-b-md border-2 shadow-md shadow-gray-700">
+    <div className="bg-[#1B1B1B] h-[600px] w-[360px] text-white font-bold text-2xl">
+      <header className="flex justify-between items-center pr-4 p-2 bg-white rounded-b-md border-2 shadow-md shadow-gray-700">
         {/* Logo on the left */}
-        <img src={logo} alt="logo" className="h-[60px] pr-5" />
+        <img src={logo} alt="logo" className="h-[60px] w-[220px] pr-5" />
 
         {/* Dropdown on the right */}
         <Select
