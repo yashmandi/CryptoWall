@@ -9,6 +9,13 @@ const { TextArea } = Input;
 const RecoverAccount = ({ setWallet, setSeedPhrase }) => {
   const navigate = useNavigate();
   const [typedSeed, setTypedSeed] = useState("");
+  const [nonValid, setNonValid] = useState(false);
+
+  function seedAdjust(e) {
+    setNonValid(false);
+    setTypedSeed(e.target.value);
+  }
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center p-10">
@@ -19,7 +26,7 @@ const RecoverAccount = ({ setWallet, setSeedPhrase }) => {
         </p>
         <textarea
           value={typedSeed}
-          onChange={(e) => setTypedSeed(e.target.value)}
+          onChange={seedAdjust}
           rows="4"
           placeholder="Type your seed phrase here..."
           className="w-[300px] mt-4 border-2 bg-[#262626] text-sm p-3 rounded-md font-medium"
@@ -37,7 +44,11 @@ const RecoverAccount = ({ setWallet, setSeedPhrase }) => {
         >
           Recover Wallet
         </h4>
-
+        {nonValid && (
+          <p className="text-red-500 text-sm mt-3 font-medium">
+            Invalid Seed Phrase
+          </p>
+        )}
         <div
           className="text-[14px] mt-24 text-center ml-1.5 bg-[#1B1B1B] text-white px-2 cursor-pointer hover:bg-white border-2 hover:text-black rounded-md"
           onClick={() => navigate("/")}
