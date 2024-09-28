@@ -9,8 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/getTokens", async(req, res)> {
-    
-    return res.status(200).json({});
+    return res.status(200).json
 })
 
 Moralis.start({
