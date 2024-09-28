@@ -31,6 +31,12 @@ const tokens = [
   },
 ];
 
+const nfts = [
+  "https://nft-preview-media.s3.us-east-1.amazonaws.com/evm/0x1/0xd774557b647330c91bf44cfeab205095f7e6c367/0xfb76f9ef3adabc27d77c615959f9e22dea24ac7d6a10af3458b3481e5f5e0f10/high.png",
+  ,
+  "https://nft-preview-media.s3.us-east-1.amazonaws.com/evm/0x1/0x749f5ddf5ab4c1f26f74560a78300563c34b417d/0x90cae88ffc909feab8e4df76abd0652dee98b7bffab29597d898260d91c20aa1/high.jpeg",
+];
+
 const items = [
   {
     key: "3",
@@ -41,7 +47,7 @@ const items = [
           <List
             bordered
             itemLayout="horizontal"
-            className="w-[290px] shadow-lg shadow-gray-800 border-2 border-[#262626] rounded-lg mt-1"
+            className="w-[290px] shadow-lg shadow-[#161616] border-2 border-[#222222] rounded-lg mt-1"
             dataSource={tokens}
             renderItem={(item, index) => (
               <List.Item style={{ textAlign: "left" }}>
@@ -84,7 +90,46 @@ const items = [
   {
     key: "4",
     label: <span className="text-white font-bold">NFTs</span>,
-    children: <>NFTs</>,
+    children: (
+      <>
+        {nfts ? (
+          <>
+            {nfts.map((e, i) => {
+              return (
+                <>
+                  {e && (
+                    <img
+                      key={i}
+                      className="w-[130px] shadow-lg shadow-[#161616] border-2 border-[#222222] mb-6 rounded-lg mt-1"
+                      alt="nft"
+                      src={e}
+                    />
+                  )}
+                </>
+              );
+            })}
+          </>
+        ) : (
+          <>
+            <>
+              <span className="font-semibold text-white">
+                You seem to not have any NFTs yet
+              </span>
+              <p className="text-sm font-semibold mt-3 text-white">
+                Get some coins on{" "}
+                <a
+                  href="https://opensea.io"
+                  target="_blank"
+                  className="text-blue-300 hover:text-white hover:underline"
+                >
+                  OpenSea
+                </a>
+              </p>
+            </>
+          </>
+        )}
+      </>
+    ),
   },
   {
     key: "5",
