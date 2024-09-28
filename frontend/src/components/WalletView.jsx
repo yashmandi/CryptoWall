@@ -72,9 +72,12 @@ function WalletView({
   return (
     <>
       <div>
-        <div onClick={logout}>
-          <FiLogOut className="text-[24px] cursor-pointer" />
+        <div className="flex justify-end p-3">
+          <Tooltip title="Logout">
+            <FiLogOut className="text-[24px] cursor-pointer" onClick={logout} />
+          </Tooltip>
         </div>
+
         <div className="flex flex-col">
           <div className="text-[24px] whitespace-pre-wrap text-center items-center font-semibold">
             My Wallet
