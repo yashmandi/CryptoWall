@@ -72,23 +72,30 @@ function WalletView({
   return (
     <>
       <div>
-        <div className="flex justify-end p-3">
+        {/* <div className="flex justify-end p-3">
           <Tooltip title="Logout">
             <FiLogOut className="text-[24px] cursor-pointer" onClick={logout} />
           </Tooltip>
-        </div>
-
+        </div> */}
         <div className="flex flex-col">
-          <div className="text-[24px] whitespace-pre-wrap text-center items-center font-semibold">
-            My Wallet
+          <div className="flex justify-between mt-6 items-center text-[24px] font-semibold">
+            <div></div>
+            <div className="ml-12">My Wallet</div>
+            <Tooltip title="Logout">
+              <FiLogOut
+                className="text-[35px] mr-3 cursor-pointer hover:bg-white hover:text-black rounded-full p-1.5"
+                onClick={logout}
+              />
+            </Tooltip>
           </div>
           <Tooltip
             title={wallet}
-            className="cursor-pointer mt-1 text-center items-center font-medium text-[16px]"
+            className="cursor-pointer mt-1 text-center items-center font-medium hover:underline text-[16px]"
           >
             {wallet.slice(0, 4)}...{wallet.slice(38)}
           </Tooltip>
         </div>
+
         <hr className="my-4 border-gray-600" />
         <Tabs
           defaultActiveKey="1"
