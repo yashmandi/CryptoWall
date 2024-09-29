@@ -11,7 +11,6 @@ app.use(express.json());
 app.get("/getTokens", async (req, res) => {
     const { userAddress, chain } = req.query;
 
-    // Input validation
     if (!userAddress || !chain) {
         return res.status(400).json({ error: "Missing userAddress or chain parameter" });
     }
@@ -28,7 +27,6 @@ app.get("/getTokens", async (req, res) => {
 
         return res.status(200).json(jsonResponse);
     } catch (error) {
-        // Catch any errors from the Moralis API or otherwise
         return res.status(500).json({ error: error.message });
     }
 });
