@@ -8,26 +8,35 @@ const port = 3001;
 app.use(cors());
 app.use(express.json());
 
-app.get("/getTokens", async(req, res)> {
+app.get("/getTokens", async (req, res) => {
+    const { userAddress, chain } = req.query;
 
-    const {userAddress, chain} = req.query;
-
-    const tokens = await Moralis.EvmApi.token.getWalletTokenBalances({
-        chain: chain,
-        address: userAddress,
-    });
-
-    const jsonResponse = {
-        tokens: tokens.raw
+    // Input validation
+    if (!userAddress || !chain) {
+        return res.status(400).json({ error: "Missing userAddress or chain parameter" });
     }
 
-    return res.status(200).json({});
-})
+    try {
+        const tokens = await Moralis.EvmApi.token.getWalletTokenBalances({
+            chain: chain,
+            address: userAddress,
+        });
+
+        const jsonResponse = {
+            tokens: tokens.raw
+        };
+
+        return res.status(200).json(jsonResponse);
+    } catch (error) {
+        // Catch any errors from the Moralis API or otherwise
+        return res.status(500).json({ error: error.message });
+    }
+});
 
 Moralis.start({
     apiKey: process.env.MORALIS_KEY,
 }).then(() => {
     app.listen(port, () => {
         console.log("Listening on port: " + port);
-    })
-})
+    });
+});
