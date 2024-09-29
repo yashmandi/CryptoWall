@@ -9,7 +9,19 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/getTokens", async(req, res)> {
-    return res.status(200).json
+
+    const {userAddress, chain} = req.query;
+
+    const tokens = await Moralis.EvmApi.token.getWalletTokenBalances({
+        chain: chain,
+        address: userAddress,
+    });
+
+    const jsonResponse = {
+        tokens: tokens.raw
+    }
+
+    return res.status(200).json({});
 })
 
 Moralis.start({
