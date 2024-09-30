@@ -10,24 +10,28 @@ const tokens = [
     name: <span className="text-white font-medium">Ethereum</span>,
     balance: 100000000000,
     decimals: 18,
+    logo: "https://cryptologos.cc/logos/ethereum-eth-logo.svg",
   },
   {
     symbol: <span className="text-white font-medium">LINK</span>,
     name: <span className="text-white font-medium">Chainlink</span>,
     balance: 100000000000,
     decimals: 18,
+    logo: "https://cryptologos.cc/logos/chainlink-link-logo.svg",
   },
   {
     symbol: <span className="text-white font-medium">UNI</span>,
     name: <span className="text-white font-medium">Uniswap</span>,
     balance: 100000000000,
     decimals: 18,
+    logo: "https://cryptologos.cc/logos/uniswap-uni-logo.svg",
   },
   {
     symbol: <span className="text-white font-medium">MATIC</span>,
     name: <span className="text-white font-medium">Polygon</span>,
     balance: 100000000000,
     decimals: 18,
+    logo: "https://cryptologos.cc/logos/polygon-matic-logo.svg",
   },
 ];
 

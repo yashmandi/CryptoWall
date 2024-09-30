@@ -1,7 +1,7 @@
 {
     "name": "CrytpoWall",
     "version": "1.0.0",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "CrytpoWall",
     "action": {
         "default_popup": "index.html",
